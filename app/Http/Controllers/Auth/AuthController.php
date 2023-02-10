@@ -48,6 +48,7 @@ class AuthController extends Controller
             'password'  => ['required'],
         ]);
 
+        
         if (Auth::attempt($credentials)) {
             if (Masyarakat::where('user_id', Auth::id())->exists()) {
                 $request->session()->regenerate();
